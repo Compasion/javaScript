@@ -1,0 +1,51 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Crear Elementos</title>
+<script type="text/javascript"> 
+function aleatorio(minimo,maximo){
+  return Math.floor(Math.random() * ((maximo+1)-minimo)+minimo);
+}
+function Pulsar(){
+	var cuerpo=document.getElementsByTagName("body");
+	var parrafo=cuerpo[0];
+	var nombres=["PEPE","JUAN","MARIA","SARA"];
+	var x= aleatorio(0,720);
+	var y= aleatorio(0,1280);
+	var w= aleatorio(60,90);
+	var h= aleatorio(30,60);
+	var alea = aleatorio(0,3);
+	var colores=["red","green","blue","yellow"]
+	var letra=["black","white","black","white"]
+	//genea numeros aleatorios entre 0 y 2
+	//<div style="border:0; position:absolute; top:200px; left:200px; background-color: red; width: 30px; height: 20px" >
+	var eti0="<div style='color:" + letra[alea] + "; position:absolute; background-color:" + colores[alea] + "; top:" +x+"px; left:" +y+"px; width: " + w + "px; height: " + h + "px'>" + nombres[alea] + "</div>"	
+	alert(eti0);
+	parrafo.innerHTML+=eti0;
+}
+function Borrar(){
+	var div= document.getElementsByTagName("div");
+	var ext=div.length-1;
+	var max=ext-1;
+	var alea = aleatorio(0,max)//genea numeros aleatorios entre 0 y 2
+	var primerdiv= div[alea];
+	
+	primerdiv.parentNode.removeChild(primerdiv);
+}
+</script>
+</head>
+<body>
+<form action="" method="post" enctype="text/plain">
+<center>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="red">
+	<tr>
+		<td align="center">
+			<input type="button" value="Añadir" id="boton" onclick="Pulsar()">
+		</td>
+		<td align="center">
+			<input type="button" value="Eliminar" id="boton" onclick="Borrar()">
+		</td>
+		
+	</tr>
+</table>
+</form>
+<center>
+</body>

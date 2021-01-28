@@ -1,0 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Crear Elementos</title>
+<script type="text/javascript"> 
+function aleatorio(minimo,maximo){
+  return Math.floor(Math.random() * ((maximo+1)-minimo)+minimo);
+}
+function Sustituir(){
+	var parrafos = document.getElementsByTagName("p");
+	
+	var primerParrafo = parrafos[0];
+	
+	alert (primerParrafo.innerHTML);
+	
+}
+function Concatenar(){
+	var parrafos = document.getElementsByTagName("p");
+	
+	var primerParrafo = parrafos[0];
+	
+		alert (primerParrafo.textContent);
+}
+
+</script>
+</head>
+<body>
+<form action="" method="post" enctype="text/plain">
+
+<center>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="red">
+	<tr>
+		<td align="center">
+			<input type="button" value="innerHTML" id="boton" onclick="Sustituir()">
+		</td>
+		<td align="center">
+			<input type="button" value="textContent" id="boton" onclick="Concatenar()">
+		</td>
+		
+		
+	</tr>
+	<p>hola <strong>mi</strong> amor<p/>
+</table>
+</form>
+<center>
+</body>

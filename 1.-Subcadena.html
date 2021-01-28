@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Subcadena</title>
+<script type="text/javascript"> 
+function Pulsar(){
+	var cadena="";
+	//alert("hola");
+	var x=document.getElementById("campo1").value;
+	var y=document.getElementById("campo3").value;
+	var z=document.getElementById("campo4").value;
+	
+	//document.getElementById("puntuacion").value="Pulso el boton borrar";
+	if (x == ""){
+		cadena= cadena + " " + " Frase es obligatorio \n";
+	}
+	if (y==""){
+		cadena= cadena + " " + " Inicio es obligatorio \n";
+	}
+	if (z==""){
+		cadena= cadena + " " + " Fin es obligatorio \n";
+	}
+	y1=parseInt(y);
+	z1=parseInt(z);
+    if (isNaN(y1)){
+            cadena= cadena + " " + " Inicio debe ser numérico \n";
+    }
+	if (isNaN(y1)){
+            cadena= cadena + " " + " Fin debe ser numérico \n";
+    }
+	if (cadena!=""){
+		alert(cadena);
+	}
+	else{
+		document.getElementById("campo2").value=x.substring(y1,z1);
+	}
+	
+}
+function Borrar(){
+	document.getElementById("campo1").value="";
+	document.getElementById("campo2").value="";
+	document.getElementById("campo3").value="";
+	document.getElementById("campo4").value="";
+}
+</script>
+</head>
+<body>
+<form action="" method="post" enctype="text/plain">
+
+<center>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="white">
+	<tr>
+		<td align="center" colspan="2">Frase: <input type="text" id="campo1" size="25" maxlength="50"></td>
+		
+	</tr>
+	<tr>
+		<td align="center">Inicio: <input type="text" id="campo3" size="25" maxlength="50"></td>
+		<td align="center">Final: <input type="text" id="campo4" size="25" maxlength="50"></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="2">Solución: <input type="text" id="campo2" size="25" maxlength="50"></td>
+	</tr>
+	<tr>
+		<td align="center">
+			<input type="button" value="Pulsar" id="boton" onclick="Pulsar()">
+		</td>
+		<td align="center">
+			<input type="button" value="Borrar" id="boton" onclick="Borrar()">
+		</td>
+		
+	</tr>
+</table>
+</form>
+<center>
+</body>

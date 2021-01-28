@@ -1,0 +1,153 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Meses</title>
+<script type="text/javascript"> 
+function aleatorio(minimo,maximo){
+  return Math.floor(Math.random() * ((maximo+1)-minimo)+minimo);
+}
+function Pulsar(){
+	var meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+	n=aleatorio(0,11);
+	var x=meses[n];
+	ponerpalabra=document.getElementById("palabra");
+	document.getElementById("solucion").value=x;
+	ponerpalabra.innerHTML = "";
+	for (var i=0;i<x.length;i++){
+		ponerpalabra.innerHTML += "_";
+	
+	}
+	//ponemos rendirse
+	x = document.getElementById("rendir");
+	x.innerHTML= "Rendirse";
+	(document.getElementById("intentos")).innerHTML="7";
+	(document.getElementById("p1")).innerHTML="Ninguna";
+	document.getElementById("letras").value="";
+	document.getElementById("letra").value="";
+	
+	(document.getElementById("foto")).innerHTML='<img src="0.jpg"  width="100%" height="100%" border="1"></img>';
+	document.getElementById("imgnum").value=0;
+	
+	
+	
+	
+}
+function Probar(){
+	var imagenes=["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg"];
+	//probamos si el juego ha terminado
+	intentos=parseInt(document.getElementById("intentos").textContent);
+	//Si intentos es cero se ha terminado
+	
+	
+		laletra=document.getElementById("letra").value;
+		if (laletra==""){
+			document.getElementById("letra").value="";
+		}
+		else{
+			palabra=document.getElementById("solucion").value;
+			ponerpalabra=document.getElementById("palabra");
+			ponerpalabra2=document.getElementById("palabra").textContent;
+			
+			//alert(ponerpalabra2);
+			pasar=true;
+			ponerpalabra.innerHTML = "";
+			for (var i=0;i<palabra.length;i++){
+				if (palabra.charAt(i) == laletra){
+					ponerpalabra.innerHTML +=laletra;
+					pasar=false;
+				}else{
+					valor= ponerpalabra2.charAt(i);
+					ponerpalabra.innerHTML +=valor;
+				}
+			
+			}
+			//
+			if (pasar){
+				
+				//alert(intentos);
+				intentos=intentos-1;
+				//cambiamos imagen
+				(document.getElementById("intentos")).innerHTML = intentos;
+				zz=parseInt(document.getElementById("imgnum").value);
+				
+				(document.getElementById("foto")).innerHTML='<img src="'+imagenes[zz]+'" border="1"></img>';
+				zz=zz+1;
+				document.getElementById("imgnum").value=zz;
+				if (intentos==0){
+					x = document.getElementById("rendir");
+					x.innerHTML= "Perdiste. La solución es: " +document.getElementById("solucion").value;
+				}
+			}
+			
+			document.getElementById("letras").value= document.getElementById("letras").value + " " + laletra;
+			(document.getElementById("p1")).innerHTML="";
+			(document.getElementById("p1")).innerHTML+=document.getElementById("letras").value
+			document.getElementById("letra").value=""
+		}//letra en blanco
+		//comprobamos si esta la palabra terminada
+		if (palabra==document.getElementById("palabra").textContent){
+			x = document.getElementById("rendir");
+			x.innerHTML= "VICTORIA!!!!! ";
+		}
+}
+function Rendirse(){
+	x = document.getElementById("rendir");
+	x.innerHTML= document.getElementById("solucion").value;
+}
+</script>
+</head>
+<body onload="Pulsar()">
+<form action="" method="post" enctype="text/plain">
+
+<center>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="red">
+	<tr>
+		<td align="center" colspan="5"><font size="8" color="white">El Ahorcado.</font>
+		</td>
+		
+	</tr>
+	<tr>
+		<td align="right" colspan="2"><font size="4" color="white">Adivinar mes:</font></td>
+		<td width="60%" align="center" colspan="2"><font size="6" color="white" id="palabra"></font></td>
+		<td align="center" rowspan="3" id="foto"><img src="0.jpg"  width="100%" height="100%" border="1"></img></td>
+	</tr>
+	<tr>
+		<td align="center" colspan="4">
+			<font size="4" color="white">Tienes </font> 
+			<font size="6" color="white" id="intentos">7</font>
+			<font size="4" color="white">intentos </font> 
+		
+		</td>
+	</tr>
+	<tr>
+		<td align="right" colspan="2">
+			<font size="4" color="white">Letras Jugadas: </font> 
+		</td>
+		<td align="center" colspan="2">
+			<font size="6" color="white" id="p1">Ninguna </font> 
+		</td>
+	</tr>
+	<tr>
+		<td align="right" colspan="2">
+			<font size="4" color="white" >Letra para jugar: </font> 
+		</td>
+		<td align="left" colspan="3">
+			<font size="4" color="white" onclick="Probar()" style="cursor:hand">Poner letra y  </font> 
+			<input type="text" id="letra" size="1" maxlength="2">
+			<u><font size="4" color="white" onclick="Probar()" style="cursor:hand">pulsar para probar </font></u> 
+		</td>
+	</tr>
+	<tr>
+		<td align="center" colspan="3">
+			<font size="5" color="white" onclick="Pulsar()" style="cursor:hand">Jugar otra vez</font>
+			
+		</td>
+		<td align="center" colspan="2">
+			<font size="5" color="white" onclick="Rendirse()" style="cursor:hand" id="rendir">Rendirse</font>
+		</td>
+	</tr>
+</table>		
+		<input type="hidden" id="solucion" >
+		<input type="hidden" id="letras" >
+		<input type="hidden" id="imgnum"  value="0" >
+</form>
+<center>
+</body>

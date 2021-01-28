@@ -1,0 +1,51 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Difference between getelementsbyname & getelementbyid in JavaScript - An Example
+    </title>
+
+    <script type="text/javascript">
+   
+    // function to get value by getelementbyid document
+    function GetById()
+    {
+        document.getElementById("div1").innerHTML=document.getElementById("num").value;
+    }
+   
+    // function to get value by document.getelementsbyname
+    function GetByName()
+    {
+        var nums= document.getElementsByName("number");
+        var result='';
+        for(var i=0; i<nums.length; i++)
+        {
+            result+=nums[i].value +"<br/>";
+            document.getElementById("div1").innerHTML= result;
+        }
+    }   
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <input type="text" id="num" value="12345" />
+        <input type="text" name="number" value="number1" />
+        <input type="text" name="number" value="number2" />
+        <input type="text" name="number" value="number3" />
+    </div>
+    <br />
+    <div id="div1" style="border-style: solid; border-width: thin; border-color: inherit;
+        width: 625px; height: 100px;">
+        Div Section
+    </div>
+    <br />
+    <input type="button" onclick="GetById();" value="Get Element By Id" />
+    <input type="button" onclick="GetByName();" value="Get Element By Name" />
+    </form>
+</body>
+
+</html>
+ 
+       

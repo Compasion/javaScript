@@ -1,0 +1,52 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Crear Elementos</title>
+<script type="text/javascript"> 
+function aleatorio(minimo,maximo){
+  return Math.floor(Math.random() * ((maximo+1)-minimo)+minimo);
+}
+function Sustituir(){
+	var parrafos = document.getElementsByTagName("p");
+	
+	var primerParrafo = parrafos[0];
+	
+	primerParrafo.innerHTML=" Soy Dios ";
+	
+}
+function Concatenar(){
+	var parrafos = document.getElementsByTagName("p");
+	
+	var primerParrafo = parrafos[0];
+	
+	primerParrafo.innerHTML+=" Soy Dios ";
+}
+function Concatenar2(){
+	var parrafos = document.getElementsByTagName("p");
+	
+	var primerParrafo = parrafos[0];
+	
+	primerParrafo.innerHTML+=" <strong>Soy Dios</strong> ";
+}
+</script>
+</head>
+<body>
+<form action="" method="post" enctype="text/plain">
+
+<center>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="red">
+	<tr>
+		<td align="center">
+			<input type="button" value="Sustituir" id="boton" onclick="Sustituir()">
+		</td>
+		<td align="center">
+			<input type="button" value="Concatenar" id="boton" onclick="Concatenar()">
+		</td>
+		<td align="center">
+			<input type="button" value="Concatenar etiquetas" id="boton" onclick="Concatenar2()">
+		</td>
+		
+	</tr>
+	<p>hola mi amor<p/>
+</table>
+</form>
+<center>
+</body>

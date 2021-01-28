@@ -1,0 +1,60 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Codificación Cesar</title>
+<script type="text/javascript"> 
+function Pulsar(){
+	var vocabulario=["a","b","c","d","e","f","g","h","i","j","k","l","m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z"]
+	var cadena="";
+	var x=document.getElementById("campo1").value;
+	
+	if (x == ""){
+		cadena= cadena + " " + " Frase es obligatorio \n";
+	}
+	
+	if (cadena!=""){
+		alert(cadena);
+	}
+	else{
+		var v=x.split("");
+		for(var i=0;i<v.length;i++){
+			var z=0;
+			while (vocabulario[z] != v[i]){
+				z=z+1
+			}
+			var valor= ((z+3)%27);
+			cadena=cadena+vocabulario[valor];
+		}
+		document.getElementById("campo2").value=cadena;
+	}
+	
+}
+function Borrar(){
+	document.getElementById("campo1").value="";
+	document.getElementById("campo2").value="";
+}
+</script>
+</head>
+<body>
+<form action="" method="post" enctype="text/plain">
+
+<center>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="red">
+	<tr>
+		<td align="center" colspan="2">Frase: <input type="text" id="campo1" size="25" maxlength="50"></td>
+		
+	</tr>
+	<tr>
+		<td align="center" colspan="2">Solución: <input type="text" id="campo2" size="25" maxlength="50"></td>
+	</tr>
+	<tr>
+		<td align="center">
+			<input type="button" value="Pulsar" id="boton" onclick="Pulsar()">
+		</td>
+		<td align="center">
+			<input type="button" value="Borrar" id="boton" onclick="Borrar()">
+		</td>
+		
+	</tr>
+</table>
+</form>
+<center>
+</body>

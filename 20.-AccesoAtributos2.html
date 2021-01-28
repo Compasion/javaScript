@@ -1,0 +1,65 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Crear Elementos</title>
+<script type="text/javascript"> 
+function aleatorio(minimo,maximo){
+  return Math.floor(Math.random() * ((maximo+1)-minimo)+minimo);
+}
+function Atributo(){
+	var enlace = document.getElementById("enlace");
+	alert(enlace.href); // muestra http://www...com
+	
+}
+function Estilo(){
+	var imagen = document.getElementById("imagen");
+	alert(imagen.style.margin);
+}
+function Cambiar(){
+	var imagen = document.getElementById("imagen");
+	//imagen.style.margin=100;
+	//imagen.src="./18.-/2.png" 
+	//alert (imagen.src);
+	x=imagen.src;
+	y=x.split("/");
+	//
+	alert(y[y.length-1]);
+	if (y[y.length-1]=="1.jpg"){
+		imagen.src="./18.-/2.png" 
+	}else{
+		imagen.src="./18.-/1.jpg" 
+	}
+		//imagen.src="./18.-/2.png" 
+	//var parrafos = document.getElementsByTagName("p");
+	
+	//var primerParrafo = parrafos[0];
+	
+	//primerParrafo.innerHTML+=" <strong>Soy Dios</strong> ";
+}
+</script>
+</head>
+<body>
+<form action="" method="post" enctype="text/plain">
+
+<center>
+<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="red">
+	<tr>
+		<td align="center">
+			<input type="button" value="Atributo" id="boton" onclick="Atributo()">
+		</td>
+		<td align="center">
+			<input type="button" value="Atributo de estilo" id="boton" onclick="Estilo()">
+		</td>
+		<td align="center">
+			<input type="button" value="Cambiar" id="boton" onclick="Cambiar()">
+		</td>
+		
+	</tr>
+	
+
+</table>
+<a id="enlace" href="http://www...com">Enlace</a>
+<Br/>
+<img id="imagen" height="20%" width="20%" style="margin:0; border:1;" src="./18.-/1.jpg" />
+	<p>hola mi amor<p/>
+</form>
+<center>
+</body>

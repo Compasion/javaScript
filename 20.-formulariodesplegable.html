@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Concatenar</title>
+<script type="text/javascript"> 
+function Pulsar(){
+	var elementos = document.getElementsByName("pregunta");
+	for(var i=0; i<elementos.length; i++) {
+		alert(" Elemento: " + elementos[i].value + "\n Seleccionado: " + elementos[i].checked);
+	}
+	
+}
+function Borrar(){
+	var elementos = document.getElementsByName("pregunta");
+	for(var i=0; i<elementos.length; i++) {
+		elementos[i].checked = false;
+	}
+}
+function mostrar(){
+	
+	var elemento1 = document.getElementById("for1");
+	elemento1.innerHTML='';
+	var elemento2 = document.getElementById("for2");
+	elemento2.innerHTML='Ocultar';
+	//alert(elemento1);
+	var elemento = document.getElementById("pos");
+	elemento.innerHTML= '<table width="80%" border="0" cellspacing="0" cellpadding="10" bgcolor="red"><tr><td align="center"><input type="radio" value="si" name="pregunta" id="pregunta_si"/> SI<input type="radio" value="no" name="pregunta" id="pregunta_no"/> NO<input type="radio" value="nsnc" name="pregunta" id="pregunta_nsnc"/> NS/NC </td></tr><tr><td align="center"><input type="button" value="Pulsar" id="boton" onclick="Pulsar()"></td><td align="center"><input type="button" value="Borrar" id="boton" onclick="Borrar()"></td></tr></table>'
+}
+function ocultar(){
+	//alert();
+	var elemento1 = document.getElementById("for1");
+	elemento1.innerHTML='Mostrar';
+	var elemento2 = document.getElementById("for2");
+	elemento2.innerHTML='';
+	var elemento = document.getElementById("pos");
+	elemento.innerHTML="";
+}
+</script>
+</head>
+<body>
+<form action="" method="post" enctype="text/plain">
+<center>
+Rellenar el formulario si es conveniente. <p id="for1" onclick="mostrar()"> Mostrar </p><p id="for2" onclick="ocultar()"></p>
+<table width="80%">
+	<tr>
+		<td align="center" id="pos">
+			
+		</td>
+	</tr>
+</table>
+</center>
+</form>
+
+</body>
+</html>
